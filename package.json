@@ -1,0 +1,25 @@
+{
+  "name": "three.js-boilerplate",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview",
+    "deploy": "vercel --prod"
+  },
+  "devDependencies": {
+    "glslify-bundle": "^5.1.1",
+    "glslify-deps": "^1.3.2",
+    "vite": "^3.1.0",
+    "vite-plugin-glsl": "^0.4.0"
+  },
+  "dependencies": {
+    "@parcel/transformer-glsl": "^2.7.0",
+    "dat.gui": "^0.7.9",
+    "gsap": "^3.11.1",
+    "three": "^0.144.0",
+    "three-orbit-controls": "^82.1.0"
+  }
+}
