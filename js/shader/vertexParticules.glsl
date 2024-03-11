@@ -1,6 +1,7 @@
 uniform float uTime;
 uniform float uProgress;
 uniform float uMouse;
+uniform vec4 uResolution;
 
 varying float vColorRandoms;
 varying vec2 vUv;
@@ -136,6 +137,16 @@ void main() {
     newPos.xy += curl(newPos.xyz, uTime*0.1, 0.01).xy * 0.04;
 
     vec4 mvPosition = modelViewMatrix * vec4(newPos, 1.);
-    gl_PointSize = (20. * randoms + 5.) * (1. / -mvPosition.z);
+    //gl_PointSize = (20. * randoms + 5.) * (1. / -mvPosition.z);
+
+    // Calculate particle size
+    float particleSize = 45.0 * randoms + 5.0; // Adjust this formula as needed
+
+    // Adjust particle size based on screen resolution
+    particleSize *= min(uResolution.a, uResolution.b)/min(16.,9.);
+
+    // Set gl_PointSize
+    gl_PointSize = particleSize;
+    
     gl_Position = projectionMatrix * mvPosition;
 }

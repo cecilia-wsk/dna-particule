@@ -150,14 +150,14 @@ export default class Sketch {
 
 	settings = () => {
 		this.settings = {
-			progress: 0.,
+			//progress: 0.,
 			bloomPassThreshold: 0.1,
 			bloomPassStrength: 0.9,
 			bloomPassRadius: 0.01,
 			aberrationMaxDistort: 1.4
 		};
 		this.gui = new dat.GUI();
-		this.gui.add(this.settings, "progress", 0, 1, 0.01);
+		//this.gui.add(this.settings, "progress", 0, 1, 0.01);
 		this.gui.add(this.settings, "bloomPassThreshold", 0, 2, 0.001);
 		this.gui.add(this.settings, "bloomPassStrength", 0, 2, 0.01);
 		this.gui.add(this.settings, "bloomPassRadius", 0, 2, 0.01);
@@ -333,7 +333,7 @@ export default class Sketch {
 
 		this.dna.rotation.y = this.elapsedTime/35;
 
-		this.material.uniforms.uProgress.value = this.settings.progress;
+		//this.material.uniforms.uProgress.value = this.settings.progress;
 		this.material.uniforms.uTime.value = this.elapsedTime;
 		this.material.uniforms.uMouse.value = this.followMouse;
 		this.targetSpeed *= 0.999;
