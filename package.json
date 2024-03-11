@@ -20,6 +20,7 @@
     "dat.gui": "^0.7.9",
     "gsap": "^3.11.1",
     "three": "^0.144.0",
-    "three-orbit-controls": "^82.1.0"
+    "three-orbit-controls": "^82.1.0",
+    "vercel": "^33.5.5"
   }
 }

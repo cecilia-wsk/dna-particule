@@ -10,9 +10,6 @@ import { RenderPass } from 'three/examples/jsm/postprocessing/RenderPass';
 import { ShaderPass } from 'three/examples/jsm/postprocessing/ShaderPass';
 import { UnrealBloomPass } from 'three/examples/jsm/postprocessing/UnrealBloomPass';
 
-import { GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader';
-import { DRACOLoader } from 'three/examples/jsm/loaders/DRACOLoader';
-
 
 export default class Sketch {
 	
@@ -33,12 +30,7 @@ export default class Sketch {
 		this.renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2))
 		this.renderer.setClearColor(0x000000, 1);
 		this.renderer.physicallyCorrectLights = true;
-		
-		this.loader = new GLTFLoader();
-		this.dracoLoader = new DRACOLoader();
-		this.dracoLoader.setDecoderPath('../node_modules/three/examples/js/libs/draco/gltf/'); 
-
-		this.loader.setDRACOLoader( this.dracoLoader );
+	
 
 		this.container = document.getElementById("webgl");
 		this.container.appendChild(this.renderer.domElement);
@@ -51,21 +43,14 @@ export default class Sketch {
 
 		this.paused = false;
 
-		this.loader.load( dna, (gltf) => {
-			this.geometry = gltf.scene.children[0].geometry;
-			this.geometry.center();
-			
-			this.settings();
-			this.addCamera();
-			this.addObjects();
-			this.addControls();
-			this.createMesh();
-			this.initPostProcessing();
-			this.resize();
-			this.render();
-
-		});
-
+		this.settings();
+		this.addCamera();
+		this.addObjects();
+		this.addControls();
+		this.createMesh();
+		this.initPostProcessing();
+		this.resize();
+		this.render();
 
 		window.addEventListener('mousemove', (event) => {
 			this.mouseMouve(event);
